@@ -42,7 +42,7 @@
       snakeNueva.style.position = "absolute"
 
       contenedor.appendChild(tablaNueva);
-      snakeNueva.appendChild(contendor);
+      contenedor.appendChild(snakeNueva);
 
 
     }
