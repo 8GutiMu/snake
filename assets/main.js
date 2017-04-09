@@ -16,12 +16,16 @@ function createNewGame(){
   backgroundSnake.style.height = sizeGame + "px";
   backgroundSnake.style.backgroundColor = "green";
   backgroundSnake.style.position = "absolute";
+  backgroundSnake.style.left = "10px";
+  backgroundSnake.style.top ="119px"
 
 
   snake.style.width = "10px";
   snake.style.height = "10px";
   snake.style.backgroundColor = "black";
   snake.style.position = "absolute";
+  snake.style.left = "10px";
+  snake.style.top ="119px"
 
 
   container.appendChild(backgroundSnake);
@@ -38,40 +42,42 @@ function sizeTable(){
 function moveSnake(e){
     var limite = sizeTable();
     limite = limite*10;
-    limite -= 10;
+    var limiteY = 119+ limite-10;
 
 
-    var situacionY = document.getElementById("snake").offsetLeft;
-    var situacionX = document.getElementById("snake").offsetTop;
 
-       switch (e.keyCode){
-           case  37:
-             if (situacionY >0) {
-               snake.style.left = situacionY-10+"px" ;
+
+    var situacionX = document.getElementById("snake").offsetLeft;
+    var situacionY = document.getElementById("snake").offsetTop;
+
+    switch (e.keyCode){
+           case  37: //tecla izquierda
+             if (situacionX > 10) {
+               snake.style.left = situacionX-10+"px" ;
              }else {
                youLost();
              }
 
                break;
-           case 38:
-           if (situacionX >0) {
-               snake.style.top = situacionX-10+"px" ;
+           case 38: //tecla arriba
+           if (situacionY > 119 ) {
+               snake.style.top = situacionY-10+"px" ;
            }else {
              youLost();
            }
                break;
 
-           case 39 :
-           if (situacionY < limite) {
-               snake.style.left = situacionY+10+"px" ;
+           case 39 : //tecla derecha
+           if (situacionX < limite) {
+               snake.style.left = situacionX+10+"px" ;
            }else{
                youLost();
            }
 
                break;
-           case 40 :
-           if(situacionX < limite){
-             snake.style.top = situacionX+10+"px" ;
+           case 40 : //tecla abajo
+           if(situacionY < limiteY){
+             snake.style.top = situacionY+10+"px" ;
            }else{
              youLost()
            }
